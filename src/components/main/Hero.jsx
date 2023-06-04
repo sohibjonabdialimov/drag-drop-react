@@ -45,8 +45,6 @@ const Hero = ({ boards, setBoards }) => {
   // drop function
   function dropFunction(e, board, item) {
     e.preventDefault();
-    console.log(board);
-    console.log(currentBoard);
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
     const dropIndex = board.items.indexOf(item);

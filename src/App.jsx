@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import user1 from "./assets/img/user1.png";
 import "./App.css";
-import {v4} from "uuid";
+import { v4 } from "uuid";
 
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
