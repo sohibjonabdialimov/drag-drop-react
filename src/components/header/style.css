@@ -1,0 +1,10 @@
+header{
+  background-color: #2EA97D;
+  height: 44px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
