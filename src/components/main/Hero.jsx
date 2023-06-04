@@ -9,30 +9,51 @@ const Hero = ({ boards, setBoards }) => {
   const [currentBoard, setCurrentBoard] = useState(null);
   const [currentItem, setCurrentItem] = useState(null);
 
+  let num = 0;
+  boards.map((board) => {
+    num += board.items.length;
+    return num;
+  });
+
+  // drag over function
   function dragOverFunction(e) {
     e.preventDefault();
     if (e.target.className === "item") {
       e.target.style.boxShadow = "0 2px 3px gray";
     }
   }
+
+  // drag leave function
+
   function dragLeaveFunction(e) {
     e.target.style.boxShadow = "none";
   }
+
+  // drag start function
+
   function dragStartFunction(e, board, item) {
     setCurrentBoard(board);
     setCurrentItem(item);
   }
+
+  // drag end function
+
   function dragEndFunction(e) {
     e.target.style.boxShadow = "none";
   }
 
-  
-  function dropCardFunction(e, board) {
-    board.items.push(currentItem);
+
+
+  // drop function
+  function dropFunction(e, board, item) {
+    e.preventDefault();
+    console.log("salom");
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
-    setBoards(
-      boards.map((b) => {
+    const dropIndex = board.items.indexOf(item);
+    board.items.splice(dropIndex + 1, 0, currentItem);
+
+    setBoards(boards.map((b) => {
         if (b.id === board.id) {
           return board;
         }
@@ -48,19 +69,20 @@ const Hero = ({ boards, setBoards }) => {
   }
 
 
-  function dropFunction(e, board, item) {
+  // drop card function
+
+  function dropCardFunction(e, board) {
     e.preventDefault();
+    
+    board.items.push(currentItem);
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
-    const dropIndex = board.items.indexOf(item) ;
-    board.items.splice(dropIndex + 1, 0, currentItem);
-
     setBoards(
       boards.map((b) => {
-        if (b.id === board.id) {
+        if (b.id == board.id) {
           return board;
         }
-        if (b.id === currentBoard.id) {
+        if (b.id == currentBoard.id) {
           return currentBoard;
         }
 
@@ -75,7 +97,7 @@ const Hero = ({ boards, setBoards }) => {
     <main className="main">
       <div className="scroll">
         <h2 className="title">
-          Заявки <span></span> <p>22</p>
+          Заявки <span></span> <p>{num}</p>
         </h2>
         <div className="wrapper">
           {boards.map((board) => (
@@ -98,13 +120,13 @@ const Hero = ({ boards, setBoards }) => {
                   board.items.map((item) => (
                     <div
                       key={item.id}
-                      draggable={true}
                       className="item"
                       onDragOver={(e) => dragOverFunction(e)}
                       onDragStart={(e) => dragStartFunction(e, board, item)}
                       onDragEnd={(e) => dragEndFunction(e)}
                       onDragLeave={(e) => dragLeaveFunction(e)}
                       onDrop={(e) => dropFunction(e, board, item)}
+                      draggable={true}
                     >
                       <button className="menu">
                         <img src={menu} alt="" />

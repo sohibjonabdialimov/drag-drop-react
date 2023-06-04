@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import user1 from "./assets/img/user1.png";
 import "./App.css";
+import {v4} from "uuid";
 
 import Header from "./components/header/Header";
 import Sidebar from "./components/sidebar/Sidebar";
@@ -8,11 +9,11 @@ import Hero from "./components/main/Hero";
 const App = () => {
   const [boards, setBoards] = useState([
     {
-      id: 1,
+      id: v4(),
       title: "Новые",
       items: [
         {
-          id: 1,
+          id: v4(),
           title: "UI/UX дизайнер",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -22,7 +23,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 2,
+          id: v4(),
           title: "Маркетолог",
           desc: "Отдел разработки мобильного",
           bool: true,
@@ -32,7 +33,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 3,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел приложения",
           bool: true,
@@ -44,11 +45,11 @@ const App = () => {
       ],
     },
     {
-      id: 2,
+      id: v4(),
       title: "Текущие",
       items: [
         {
-          id: 4,
+          id: v4(),
           title: "PHP Developer",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -58,7 +59,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 5,
+          id: v4(),
           title: "Freshers",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -68,7 +69,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 6,
+          id: v4(),
           title: "Joomla Developer",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -80,16 +81,16 @@ const App = () => {
       ],
     },
     {
-      id: 3,
+      id: v4(),
       title: "Закрытые",
       items: [],
     },
     {
-      id: 4,
+      id: v4(),
       title: "Архив",
       items: [
         {
-          id: 7,
+          id: v4(),
           title: "UI/UX дизайнер",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -99,7 +100,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 8,
+          id: v4(),
           title: "Маркетолог",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -109,7 +110,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 9,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -121,11 +122,11 @@ const App = () => {
       ],
     },
     {
-      id: 5,
+      id: v4(),
       title: "Удаленные",
       items: [
         {
-          id: 10,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -135,7 +136,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 11,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -145,7 +146,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 12,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
@@ -155,7 +156,7 @@ const App = () => {
           name: "Алексей Щербаков",
         },
         {
-          id: 13,
+          id: v4(),
           title: "Менеджер по продажам",
           desc: "Отдел разработки мобильного приложения",
           bool: true,
