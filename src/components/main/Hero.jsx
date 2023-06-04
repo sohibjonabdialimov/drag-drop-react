@@ -42,53 +42,52 @@ const Hero = ({ boards, setBoards }) => {
     e.target.style.boxShadow = "none";
   }
 
-
-
   // drop function
   function dropFunction(e, board, item) {
     e.preventDefault();
-    console.log("salom");
+    console.log(board);
+    console.log(currentBoard);
     const currentIndex = currentBoard.items.indexOf(currentItem);
     currentBoard.items.splice(currentIndex, 1);
     const dropIndex = board.items.indexOf(item);
     board.items.splice(dropIndex + 1, 0, currentItem);
 
-    setBoards(boards.map((b) => {
+    setBoards(
+      boards.map((b) => {
         if (b.id === board.id) {
           return board;
         }
         if (b.id === currentBoard.id) {
           return currentBoard;
         }
-
         return b;
       })
     );
-
     e.target.style.boxShadow = "none";
   }
-
 
   // drop card function
 
   function dropCardFunction(e, board) {
-    e.preventDefault();
-    
-    board.items.push(currentItem);
-    const currentIndex = currentBoard.items.indexOf(currentItem);
-    currentBoard.items.splice(currentIndex, 1);
-    setBoards(
-      boards.map((b) => {
-        if (b.id == board.id) {
-          return board;
-        }
-        if (b.id == currentBoard.id) {
-          return currentBoard;
-        }
+    console.log(board);
+    console.log(board.items);
+    if (board.items.length <= 0) {
+      board.items.push(currentItem);
+      const currentIndex = currentBoard.items.indexOf(currentItem);
+      currentBoard.items.splice(currentIndex, 1);
+      setBoards(
+        boards.map((b) => {
+          if (b.id === board.id) {
+            return board;
+          }
+          if (b.id === currentBoard.id) {
+            return currentBoard;
+          }
 
-        return b;
-      })
-    );
+          return b;
+        })
+      );
+    }
 
     e.target.style.boxShadow = "none";
   }
